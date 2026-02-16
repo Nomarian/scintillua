@@ -1842,7 +1842,8 @@ function M.detect(filename, line)
 		['^%s*class%s+%S+%s*<%s*ActionController::Base'] = 'rails',
 		['^%s*class%s+%S+%s*<%s*ActiveRecord::Base'] = 'rails',
 		['^%s*class%s+%S+%s*<%s*ActiveRecord::Migration'] = 'rails', ['^%s*<%?xml%s'] = 'xml',
-		['^#cloud%-config'] = 'yaml'
+		['^#cloud%-config'] = 'yaml',
+		["^#.* by RouterOS"] = 'routeros'
 	}
 
 	for patt, name in pairs(M.detect_patterns) do if line:find(patt) then return name end end
